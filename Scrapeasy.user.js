@@ -20,14 +20,7 @@ function start(){
                 attrList.innerHTML = "";
                 updateAttrList(hovered);
                 replaceNhover();
-                switch (parseInt(range.value)) {
-                    case 0:
-                        preciseSelector(true);
-                        break;
-                    case 1:
-                        preciseSelector(false);
-                        break;
-                }
+                preciseSelector(unique.checked);
             }
         }
     });
@@ -37,25 +30,19 @@ function insertCss(){
     newCss.innerHTML = scrapCss;
     document.head.appendChild(newCss);
 }
-function createRange(){
-    var range = document.createElement("input");
-    range.setAttribute("type", "range");
-    range.setAttribute("style", "width:100%;");
-    range.setAttribute("step", "1");
-    range.setAttribute("min", "0");
-    range.setAttribute("max", 1);
-    range.value = 0;
-    range.className = "not-nhover";
-    return range;
-}
-function createUi(range){
+function createUi(){
     var ui = document.createElement("div");
     ui.className = "not-nhover not-nhover-main";
     ui.innerHTML = "<a href='#' class='not-nhover'>"
     +"<h1 class='not-nhover wsnw show-attr'>Start</h1></a>";
+    var check = document.createElement("input");
+    check.setAttribute("type", "checkbox");
+    check.setAttribute("class", "non-unique");
+    check.checked = true;
+    ui.innerHTML += "<br> Multiple selectors only?";
+    ui.appendChild(check);
     ui.querySelector("a").onclick = function(){start(); return false;};
     body.insertBefore(ui, body.firstChild);
-    ui.appendChild(range);
     return ui;
 }
 function createAttrList(ui){
@@ -125,7 +112,7 @@ function showMore(){
         var inp = document.createElement("form");
         var setName = document.createElement("input");
         setName.setAttribute("type", "text");
-        setName.setAttribute("placeholder", "Ex: Message.Author or Image");
+        setName.setAttribute("placeholder", "Ex: image.url or message");
         var fx = document.createElement("span");
         fx.setAttribute("class", "show-fx not-nhover show-attr show-attr-btn");
         fx.innerHTML = "f(x)";
@@ -133,7 +120,7 @@ function showMore(){
         inp.appendChild(setName);
         inp.innerHTML += "<br>";
         inp.appendChild(fx);
-        inp.innerHTML += "Offset from:";
+        inp.innerHTML += "Offset: from:";
         var no = document.querySelectorAll(".nhover");
         var strtAt = document.createElement("input");
         strtAt.setAttribute("type", "number");
@@ -169,6 +156,7 @@ function replaceNhover(){
     {no[n].className = no[n].className.replace("nhover ", "");}
 }
 function preciseSelector(nonUnique){
+    console.log("pan")
     var es = [];
     var h = document.querySelectorAll(":hover");
     for(var hl = 0; hl < h.length; hl++){
@@ -232,12 +220,17 @@ img.nhover:not(.not-nhover) {
     z-index: 2147483647;
     border: 2px solid;
     width: 20%;
+    min-height: 10em;
+    min-width: 20em;
     resize: both;
     overflow: auto;
     left: 0;
     top: 0;
     position: fixed;
     opacity: 0.9;
+}
+.show-attr-plus > form{
+    line-height: 1.7em !important;
 }
 .not-nhover > *:not(.wsnw):not(.show-attr) {
     all: initial;
@@ -250,7 +243,7 @@ img.nhover:not(.not-nhover) {
     cursor: pointer !important;
     font-size: 0.6em !important;
 }
-.not-nhover input,
+.not-nhover input:not(.non-unique),
 .not-nhover textarea{
     width: 100% !important;
     padding: 0 !important;
@@ -258,11 +251,6 @@ img.nhover:not(.not-nhover) {
     color: inherit !important;
     background-color: inherit !important;
 }
-.not-nhover input{
-    position: absolute;
-    height: 1.4em !important;
-}
-
 .show-attr-plus input:not([type*=number]),
 .show-attr-plus textarea{
     border: 1px solid #c8ccd0 !important;
@@ -271,7 +259,6 @@ img.nhover:not(.not-nhover) {
 
 .not-nhover input[type*=number]{
     width: 2.5em !important;
-    height: 2.6em !important;
 }
 .not-nhover input:not([type*=number]){
     position: absolute !important;
@@ -282,12 +269,15 @@ img.nhover:not(.not-nhover) {
 .not-nhover div{
     display: block !important;
 }
+.not-nhover{
+    letter-spacing: 1px !important;
+}
 `;
 if(window === window.top){
     var head = document.querySelector("head");
     var body = document.querySelector("body");
     insertCss();
-    var range = createRange();
-    var ui = createUi(range);
+    var ui = createUi();
     var attrList = createAttrList(ui);
+    var unique = ui.querySelector(".non-unique");
 }
