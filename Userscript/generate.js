@@ -1,4 +1,3 @@
-var rules = {};
 // Save a new rule in the object "rules" when an user click on the SAVE button created by showMore()
 function save() {
 	var as = this.parentNode.querySelector('input[type="text"]').value;
@@ -13,6 +12,7 @@ function save() {
 			max = parseInt(this.parentNode.querySelector(".stop-at").value);
 		}
 		rules[lastSelector].push({
+			scrapingMethod: lastScrapingMethod,
 			attribute: this.parentNode.parentNode.querySelector('.name').innerText,
 			as: as,
 			function: (this.parentNode.querySelector('textarea') || {
@@ -24,7 +24,6 @@ function save() {
 			}
 		});
 	}
-	return false;
 }
 //Generate a node.js script and open it in a new tab
 function generate() {

@@ -1,4 +1,3 @@
-var attributeList;
 function createAttributeList(UI) {
 	var attributeList = document.createElement("div");
 	attributeList.className = "not-nhover";
@@ -31,6 +30,7 @@ function updateAttributeList(lasthover) {
 	[].slice.call(document.querySelectorAll(".show-attr-btn")).filter(function(b) {
 		b.addEventListener("click", showMore);
 	})
+	unhighlight();
 }
 function showAttribute(toShow, list) {
 	var attribute = document.createElement("div");

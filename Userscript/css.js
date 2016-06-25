@@ -64,16 +64,18 @@ var css = `
 .current-hover:not(html):not(.not-nhover):not(hr){
     background-color: red !important;
 }
-.nhover:not(.not-nhover):not(hr):not(.current-hover){
-	background-color: cyan !important;
-}
 .nhover:not(html):not(.not-nhover):not(.not-nhover):not(hr):not(.current-hover) {
-	filter: sepia(100%) !important;
-	-webkit-filter: sepia(100%) !important;
+	/*filter: sepia(100%) !important;
+	-webkit-filter: sepia(100%) !important;*/
+    background-color: cyan !important;
 }
-
+img.nhover,
+video.nhover{
+    filter: invert(100%) !important;
+}
 /*////////////////// General //////////////////*/
 .not-nhover-main {
+    text-align: initial !important;
 	color: black !important;
 	font-size: 18px !important;
     background-color: white !important;
