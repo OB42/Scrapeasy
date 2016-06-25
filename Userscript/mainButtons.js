@@ -51,12 +51,14 @@ function start(e) {
                 var rawSelectorLength = rawHTML.querySelectorAll(rawSelector).length;
                 if (defaultSelectorLength === rawHTML.querySelectorAll(defaultSelector).length) {
                     lastScrapingMethod = "default"
+                    lastSelector = defaultSelector
                 } else if (rawSelectorLength === defaultSelectorLength) {
                     lastScrapingMethod = "raw"
+                    lastSelector = rawSelector
                 } else {
                     lastScrapingMethod = "headless"
+                    lastSelector = defaultSelector
                 }
-                lastSelector = defaultSelector
                 highlight();
             }
         }
