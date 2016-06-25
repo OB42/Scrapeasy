@@ -14,6 +14,7 @@ function preciseSelector(checkboxes, doc) {
             return elements.raw[selector];
         }
     }
+
     function relatedSelector(element, multiple) {
         var classes = element.className.split(" "),
             empty = classes.lastIndexOf(""),

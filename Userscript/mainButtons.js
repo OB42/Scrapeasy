@@ -10,6 +10,7 @@ function moreOrLess(e) {
     UI.scrollTop = 0;
     e.preventDefault();
 }
+
 function start(e) {
     var lockOnElement = false;
     this.querySelector("h1").innerText = "Generate script";
@@ -48,13 +49,11 @@ function start(e) {
                 var rawSelector = preciseSelector(checkboxes, rawHTML);
                 var defaultSelectorLength = document.querySelectorAll(defaultSelector).length;
                 var rawSelectorLength = rawHTML.querySelectorAll(rawSelector).length;
-                if(defaultSelectorLength === rawHTML.querySelectorAll(defaultSelector).length){
+                if (defaultSelectorLength === rawHTML.querySelectorAll(defaultSelector).length) {
                     lastScrapingMethod = "default"
-                }
-                else if(rawSelectorLength === defaultSelectorLength){
+                } else if (rawSelectorLength === defaultSelectorLength) {
                     lastScrapingMethod = "raw"
-                }
-                else{
+                } else {
                     lastScrapingMethod = "headless"
                 }
                 lastSelector = defaultSelector

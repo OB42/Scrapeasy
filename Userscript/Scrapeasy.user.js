@@ -24,6 +24,7 @@ var elements = {
     current: {}
 };
 var lastSelector = ":not(*)";
+
 function load() {
     //handling browser compatibility for getIndex()
     prev = document.body.previousElementSibling ?
