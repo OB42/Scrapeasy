@@ -30,8 +30,8 @@ function generate() {
     if (!Object.getOwnPropertyNames(rules).length) {
         alert("You haven't selected any elements!");
     } else {
-        var script = `var Scrapeasy = require("Scrapeasy");\nvar pattern = ` +
-            JSON.stringify(rules, null, 8) + ';\nScrapeasy("' + window.location +
+        var script = `var scrapeasy = require("scrapeasy");\nvar pattern = ` +
+            JSON.stringify(rules, null, 8) + ';\nscrapeasy("' + window.location +
             '", pattern, function(err, data){\n	if(err) throw err;\n	console.log(data);\n});';
         window.open("data:text/javascript,	" + encodeURIComponent(script), "_blank");
     }
