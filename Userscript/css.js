@@ -20,7 +20,7 @@ var css = `
     line-height: 1.7em !important;
 }
 .show-attr:not(.name){
-	cursor: pointer !important;
+    cursor: pointer !important;
 }
 .not-nhover.show-attr.save,
 .not-nhover.show-attr.show-fx{
@@ -40,7 +40,7 @@ var css = `
 }
 .not-nhover input:not([type="checkbox"]),
 .not-nhover textarea{
-	width: 100% !important;
+    width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
     color: inherit !important;
@@ -52,11 +52,12 @@ var css = `
     box-shadow: 0 1px 2px rgba(12,13,14,0.1) inset !important;
 }
 .show-attr-plus input{
-	max-width: 310px !important;
+    max-width: 310px !important;
 }
 .show-attr-plus,
 .show-attr-plus textarea{
-	max-width: 340px !important;
+    margin: inherit !important;
+    max-width: 340px !important;
 }
 
 /*////////////////// Highlighting //////////////////*/
