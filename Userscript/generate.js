@@ -1,7 +1,7 @@
 // Save a new rule in the object "rules" when an user click on the SAVE button created by showMore()
 function save() {
 	var as = this.parentNode.querySelector('input[type="text"]').value;
-	if (as.indexOf("[n]") === -1 || as.match(/\[n\][^.]/) {
+	if (as.indexOf("[n]") === -1 || as.match(/\[n\][^.]/)) {
 		alert('"As:" must follow this pattern: array[n] or array[n].property !');
 	} else {
 		if (typeof rules[lastSelector] === "undefined") {
