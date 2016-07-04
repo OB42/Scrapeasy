@@ -1,3 +1,3 @@
 # Scrapeasy
 This Userscript provide a graphical interface to generate scraping scripts using the node.js module Scrapeasy(https://github.com/oabtm/scrapeasy-node.js/).
-![Example](http://i.imgur.com/g52BkxF.gif)
+![Example](http://i.imgur.com/WVpgubH.gif)
