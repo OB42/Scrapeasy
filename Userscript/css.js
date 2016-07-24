@@ -112,6 +112,10 @@ video.nhover{
 .not-nhover div{
     display: block !important;
 }
+.not-nhover:not(.show-attr),
+.not-nhover > div > *::-moz-placeholder{
+    color: black !important;
+}
 .not-nhover{
     letter-spacing: 1px !important;
 }
