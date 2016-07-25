@@ -124,7 +124,7 @@ h1.not-nhover.wsnw.show-attr,
 	font-size: 1em !important;
     white-space: nowrap;
 }
-.not-nhover > *::not(.show-attr) h1:not(.wsnw) {
+.not-nhover > *:not(.show-attr) h1:not(.wsnw) {
     font-size: 0.6em !important;
     cursor: pointer !important;
 }
