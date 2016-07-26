@@ -40,8 +40,7 @@ if (window === window.top) {
             return response.text();
         })
         .then(function(html) {
-            rawHTML = document.createElement("html")
-            rawHTML.innerHTML = html
+            rawHTML = new DOMParser().parseFromString(html, "text/html");
             if (document.readyState === "complete") {
                 load();
             } else {
