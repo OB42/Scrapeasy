@@ -33,9 +33,9 @@ function start(e) {
         if (!lockOnElement) {
             var hover = document.elementFromPoint(e.clientX, e.clientY);
             if (lasthover) {
-                lasthover.setAttribute("class", lasthover.getAttribute("class").replace(" current-hover", ""))
+                lasthover.className = lasthover.className.replace(" current-hover", "");
             }
-            hover.setAttribute("class", hover.getAttribute("class") + " current-hover")
+            hover.className = hover.className + " current-hover";
             if (lasthover !== hover) {
                 lasthover = hover;
                 updateAttributeList(hover);
