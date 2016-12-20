@@ -23,11 +23,11 @@ function updateAttributeList(lasthover) {
 				value: lasthover.value
 			}, attributeList);
 		}
-		[].slice.call(lasthover.attributes).filter(function(a) {
+		[].slice.call(lasthover.attributes).forEach(function(a) {
 			showAttribute(a, attributeList);
 		});
 	}
-	[].slice.call(document.querySelectorAll(".show-attr-btn")).filter(function(b) {
+	[].slice.call(document.querySelectorAll(".show-attr-btn")).forEach(function(b) {
 		b.addEventListener("click", showMore);
 	})
 	unhighlight();
