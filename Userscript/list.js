@@ -29,7 +29,7 @@ function updateAttributeList(lasthover) {
 	}
 	[].slice.call(document.querySelectorAll(".show-attr-btn")).forEach(function(b) {
 		b.addEventListener("click", showMore);
-	})
+	});
 	unhighlight();
 }
 function showAttribute(toShow, list) {
